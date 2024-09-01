@@ -1,0 +1,20 @@
+# Vivado specific
+*.log
+*.jou
+*.str
+*.zip
+*.xpr
+*.wcfg
+*.wdb
+*.xml
+*.runs
+*.hw
+*.sim
+*.cache
+*.ip_user_files
+*.xsc
+*.srcs/sources_1/bd/*/hdl/*.v
+*.srcs/sources_1/bd/*/hdl/*.vhdl
+*.srcs/sources_1/ipshared/*
+*.gen/sources_1/ipshared/*
+*.gen/sources_1/imports/*
