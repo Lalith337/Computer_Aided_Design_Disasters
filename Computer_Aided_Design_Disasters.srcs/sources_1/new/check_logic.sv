@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 //TRISTATE
-module TRI_STATE(input logic mode, s, input logic [3:0] a, output logic[3:0] y); 
+module TRI_STATE(input logic mode, s, input logic [3:0] a, output logic [3:0] y); 
 
 //mode = 1: active high, select line:s
 //mode = 0: active_low, select line:s
@@ -33,9 +33,9 @@ endmodule
 
 
 //2_MUX_TRISTATE
-module TWO_MUX_TRI(input logic [3:0] a, b, input logic s, output y);
+module TWO_MUX_TRI(input logic [3:0] a, b, input logic s, output logic [3:0] y);
 TRI_STATE t1(.mode(1'b0), .a(a), .s(s), .y(y)); //active low, output y(Driver 1)
-//TRI_STATE t2(.mode(1'b1), .a(b), .s(s), .y(y)); //active high, output y(Driver 2)
+TRI_STATE t2(.mode(1'b1), .a(b), .s(s), .y(y)); //active high, output y(Driver 2)
 
 endmodule
 

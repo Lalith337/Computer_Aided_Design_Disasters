@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/30/2024 10:54:31 PM
+// Create Date: 09/12/2024 09:21:59 PM
 // Design Name: 
-// Module Name: MUX
+// Module Name: Data_flow
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module MUX();
+module Data_flow(
+// intilize input / output
+
+    );
+// Funtion call || Instantiation
 endmodule
 
 
-// Data_ flow
+//TRI_STATE
+module TRI_STATE(input bit mode, input logic [3:0] a, input logic s, output logic y); 
+
+//mode = 1: active high, select line:s
+//mode = 0: active_low, select line:s
+//expample 
+//TRI_STATE T1(.mode(1'b1), .a(4'b0000), .s(1'b1), .y(output)); active high
+//TRI_STATE T1(.mode(0'b1), .a(4'b0000), .s(0'b1), .y(output)); active low
+
+assign y = mode? (s? a : 4'bzzzz)/*active_high*/ : (~s? a : 4'bzzzz)/*active_low*/;
+endmodule
+
+//MUX
 //2:1
 module two_mux(input logic [3:0] a, b, input logic s, output logic [3:0] y);
 assign y = s?b:a;
@@ -56,19 +72,6 @@ endmodule
 //Nah bruh do it yourself !
 
 //MUX_ with _TRI_state;
-//TRI_STATE
-module TRI_STATE(input logic mode, input logic [3:0] a, input logic s, output logic y); 
-
-//mode = 1: active high, select line:s
-//mode = 0: active_low, select line:s
-//expample 
-//TRI_STATE T1(.mode(1'b1), .a(4'b0000), .s(1'b1), .y(output)); active high
-//TRI_STATE T1(.mode(0'b1), .a(4'b0000), .s(0'b1), .y(output)); active low
-
-assign y = mode? (s? a : 4'bzzzz)/*active_high*/ : (~s? a : 4'bzzzz)/*active_low*/;
-endmodule
-
-
 //2_MUX_TRISTATE
 //Warning Mulitple Driver case Outputs can be z
 module TWO_MUX_TRI(input logic [3:0] a, b, input logic s, output logic [3:0] y);
@@ -77,37 +80,43 @@ TRI_STATE t2(.mode(1'b1), .a(b), .s(s), .y(y)); //active high, output y(Driver 2
 
 endmodule
 
+//REDUCTION
+module redu(input logic [3:0] a, output logic y);
+assign y = &a; //a[3] & a[2] & a[1] & a[0] 
+endmodule
 
-//Structrual Modeling
+//HALF_ADDER
+//SUM = A ^ B
+// CARRY = A&B
+module half_adder(input logic a, b, output logic carry, sum);
+assign carry = a&b;
+assign sum = a ^ b;
+endmodule
 
-//4:1
-module struct_4_mux(input logic[3:0] a, b, c, d, s[1:0], output logic[3:0] y);
+//FULL_ADDER
+//SUM = A ^ B ^ C
+// CARRY = (A&B) | (C&(A^B))
+module full_adder(input logic a, b, c, output logic carry, sum);
+assign carry = (a&b)|(c&(a^b));
+assign sum = a ^ b ^ c;
+endmodule
 
-logic [0:3] n1,n2; // internal functions
+//INTERNAL VARIBALES
+// y = abc + !a!bc + !(abc)b + !a
+module y_func_1(input logic a, b, c, output logic y);
+logic p;
+assign p = a&b&c; // internal function
+assign y = p|(!a & !b & c)| !p&b | !a;
+endmodule
 
-two_mux t1(.a(a), .b(b), .s(s[0]), .y(n1));
-two_mux t2(.a(c), .b(d), .s(s[0]), .y(n2));
-two_mux t3(.a(n1), .b(n2), .s(s[1]), .y(y));
-
+//BIT_SWIZZING
+// {} -> Concatenation Operator
+module condate(input logic [3:0] a,b,c , output logic [7:0] y);
+assign y = {a[2:0],b[0], {4{c[0]}}};
 endmodule
 
 
-//8:1
-module struct_8_mux(input logic[3:0] a, b, c, d, e, f, g, h, input logic s[2:0], output logic [3:0] y);
-
-logic [3:0] n1, n2;
-
-struct_4_mux I1(.a(a), .b(b), .c(c), .d(d), .s(s[1:0]), .y(n1));
-struct_4_mux I2(.a(e), .b(f), .c(g), .d(h), .s(s[1:0]), .y(n2));
-
-two_mux I3(.a(n1), .b(n2), .s(s[2]), .y(y));
-
-endmodule
 
 
-//16:1
-// Good luck !
-module struct_16_mux(input logic[3:0] none, output logic[3:0] brain);
-assign brain = 4'bz;
-endmodule
+
 

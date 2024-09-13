@@ -23,13 +23,17 @@
 module check_logic_tb();
 reg [3:0] a, b;
 reg s;
-wire [3:0]y;
+wire [3:0] y;
 
 check_logic tb(.a(a), .b(b), .s(s), .y(y));
 initial begin
     a = 4'b0000; b = 4'b1111; s = 1'b0;#1
     $display("%d %d %d %d", a, b, s, y);#10
-    a = 4'b0011; b = 4'b1100; s = 1'b0;#1
+    a = 4'b0000; b = 4'b1111; s = 1'b1;#1
+    $display("%d %d %d %d", a, b, s, y);#10
+    a = 4'b0001; b = 4'b0101; s = 1'b0;#1
+    $display("%d %d %d %d", a, b, s, y);#10
+    a = 4'b0000; b = 4'b1111; s = 1'b1;#1
     $display("%d %d %d %d", a, b, s, y);#10
     $stop;
     end

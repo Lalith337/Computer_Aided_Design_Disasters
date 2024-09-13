@@ -1,4 +1,6 @@
 Time resolution is 1 ps
- 0 15 0  Z
- 3 12 0  Z
-$stop called at time : 22 ns : File "/home/lalith/Documents/Vivado/Computer_Aided_Design_Disasters/Computer_Aided_Design_Disasters.srcs/sim_1/new/check_logic_tb.sv" Line 34
+ 0 15 0  z
+ 0 15 1 15
+ 1  5 0  z
+ 0 15 1 15
+$stop called at time : 44 ns : File "/home/lalith/Documents/Vivado/Computer_Aided_Design_Disasters/Computer_Aided_Design_Disasters.srcs/sim_1/new/check_logic_tb.sv" Line 38
