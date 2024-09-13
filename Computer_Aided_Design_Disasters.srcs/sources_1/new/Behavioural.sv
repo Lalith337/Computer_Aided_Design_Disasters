@@ -81,10 +81,3 @@ Q1 <= D1;
 end
 endmodule
 
-//multiple 4-bit register Parallel in Parallel out(PIPO)
-module mutliple_reg_2(input logic [3:0] D0, D1, input logic CLK, output logic [3:0] Q0, Q1);
-always_ff@(posedge CLK) begin
-Q0 <= D0;
-Q1 <= D1;
-end
-endmodule
