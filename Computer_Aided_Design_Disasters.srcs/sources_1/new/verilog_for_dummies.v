@@ -59,24 +59,12 @@ module demux8 (
   input wire [2:0] s, 
   output reg [7:0] load
 );
-
   always @(*) begin
     load = 8'b0;
     if (wr) begin
-      case (s)
-        3'b000: load[0] = 1;
-        3'b001: load[1] = 1;
-        3'b010: load[2] = 1;
-        3'b011: load[3] = 1;
-        3'b100: load[4] = 1;
-        3'b101: load[5] = 1;
-        3'b110: load[6] = 1;
-        3'b111: load[7] = 1;
-        default: load = 8'b0;
-      endcase
+      load[s] = 1;
     end
   end
-
 endmodule
 
 
