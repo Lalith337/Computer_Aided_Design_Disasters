@@ -20,45 +20,45 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Structrual(
-// intilize input / output
+//module Structrual(
+//// intilize input / output
 
-    );
-// Funtion call || Instantiation
-endmodule
-
-
-//MUX
-//4:1
-module struct_4_mux(input logic[3:0] a, b, c, d, s[1:0], output logic[3:0] y);
-
-logic [0:3] n1,n2; // internal functions
-
-two_mux t1(.a(a), .b(b), .s(s[0]), .y(n1));
-two_mux t2(.a(c), .b(d), .s(s[0]), .y(n2));
-two_mux t3(.a(n1), .b(n2), .s(s[1]), .y(y));
-
-endmodule
+//    );
+//// Funtion call || Instantiation
+//endmodule
 
 
-//8:1
-module struct_8_mux(input logic[3:0] a, b, c, d, e, f, g, h, input logic s[2:0], output logic [3:0] y);
+////MUX
+////4:1
+//module struct_4_mux(input logic[3:0] a, b, c, d, s[1:0], output logic[3:0] y);
 
-logic [3:0] n1, n2;
+//logic [0:3] n1,n2; // internal functions
 
-struct_4_mux I1(.a(a), .b(b), .c(c), .d(d), .s(s[1:0]), .y(n1));
-struct_4_mux I2(.a(e), .b(f), .c(g), .d(h), .s(s[1:0]), .y(n2));
+//two_mux t1(.a(a), .b(b), .s(s[0]), .y(n1));
+//two_mux t2(.a(c), .b(d), .s(s[0]), .y(n2));
+//two_mux t3(.a(n1), .b(n2), .s(s[1]), .y(y));
 
-two_mux I3(.a(n1), .b(n2), .s(s[2]), .y(y));
-
-endmodule
+//endmodule
 
 
-//16:1
-// Good luck !
-module struct_16_mux(input logic[3:0] none, output logic[3:0] brain);
-assign brain = 4'bz;
-endmodule
+////8:1
+//module struct_8_mux(input logic[3:0] a, b, c, d, e, f, g, h, input logic s[2:0], output logic [3:0] y);
+
+//logic [3:0] n1, n2;
+
+//struct_4_mux I1(.a(a), .b(b), .c(c), .d(d), .s(s[1:0]), .y(n1));
+//struct_4_mux I2(.a(e), .b(f), .c(g), .d(h), .s(s[1:0]), .y(n2));
+
+//two_mux I3(.a(n1), .b(n2), .s(s[2]), .y(y));
+
+//endmodule
+
+
+////16:1
+//// Good luck !
+//module struct_16_mux(input logic[3:0] none, output logic[3:0] brain);
+//assign brain = 4'bz;
+//endmodule
 
 
 //FULL_ADDER

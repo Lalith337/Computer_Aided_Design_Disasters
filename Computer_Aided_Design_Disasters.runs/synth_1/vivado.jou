@@ -3,22 +3,22 @@
 # SW Build 5094488 on Fri Jun 14 08:57:50 MDT 2024
 # IP Build 5091682 on Fri Jun 14 16:55:04 MDT 2024
 # SharedData Build 5094118 on Fri Jun 14 01:09:43 MDT 2024
-# Start of session at: Sun Sep  1 17:20:52 2024
-# Process ID: 19707
+# Start of session at: Fri Oct  4 15:11:30 2024
+# Process ID: 22646
 # Current directory: /home/lalith/Documents/Vivado/Computer_Aided_Design_Disasters/Computer_Aided_Design_Disasters.runs/synth_1
-# Command line: vivado -log check_logic.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source check_logic.tcl
-# Log file: /home/lalith/Documents/Vivado/Computer_Aided_Design_Disasters/Computer_Aided_Design_Disasters.runs/synth_1/check_logic.vds
+# Command line: vivado -log FPGA_01.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FPGA_01.tcl
+# Log file: /home/lalith/Documents/Vivado/Computer_Aided_Design_Disasters/Computer_Aided_Design_Disasters.runs/synth_1/FPGA_01.vds
 # Journal file: /home/lalith/Documents/Vivado/Computer_Aided_Design_Disasters/Computer_Aided_Design_Disasters.runs/synth_1/vivado.jou
 # Running On        :fedora
 # Platform          :unknown
 # Operating System  :unknown
 # Processor Detail  :13th Gen Intel(R) Core(TM) i5-1340P
-# CPU Frequency     :910.537 MHz
+# CPU Frequency     :657.992 MHz
 # CPU Physical cores:12
 # CPU Logical cores :16
 # Host memory       :16361 MB
 # Swap memory       :8589 MB
 # Total Virtual     :24951 MB
-# Available Virtual :19151 MB
+# Available Virtual :19644 MB
 #-----------------------------------------------------------
-source check_logic.tcl -notrace
+source FPGA_01.tcl -notrace

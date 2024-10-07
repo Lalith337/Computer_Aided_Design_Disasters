@@ -7,4 +7,4 @@
 # Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 
-vivado -log check_logic.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source check_logic.tcl
+vivado -log FPGA_01.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FPGA_01.tcl
